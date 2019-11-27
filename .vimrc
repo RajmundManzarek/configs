@@ -37,8 +37,8 @@ nnoremap <F4> <C-W><C-W>
 inoremap <F4> <Esc><C-W><C-W>i
 nnoremap <F5> :nohlsearch<CR>
 inoremap <F5> <Esc>:nohlsearch<CR>
-nnoremap <F6> :wall \| ! doxygen<CR>
-inoremap <F6> <Esc>:wall \| ! doxygen<CR>
+nnoremap <F6> :wall \| make build<CR>
+inoremap <F6> <Esc>:wall \| make build<CR>
 nnoremap <F7> ^i//<Esc>
 inoremap <F7> <Esc>^i//
 nnoremap <F8> <C-Y>
