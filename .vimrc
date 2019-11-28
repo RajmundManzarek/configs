@@ -1,9 +1,5 @@
-"set t_ut=
-"set title
-"set nocompatible 
 syntax on
 set nonu
-"colorscheme distinguished
 colorscheme molokai
 highlight Visual ctermbg=Blue ctermfg=Yellow
 set filetype=on
@@ -11,19 +7,12 @@ autocmd FileType c,cpp :set cindent
 autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
 autocmd FileType html :set si
 autocmd FileType javascript :set efm=%f:\ line\ %l\\,\ col\ %c\\,\ %m
+autocmd FileType rust :set shiftwidth=2
 filetype plugin indent on
 set shiftround
 set cinkeys=0{,0},0),!^F,o,O,e
 set cino=i-s
 set path=.,../include,/home/wdu/sources/include
-ab #p #------------------------------------------------------------------------------------<CR><CR><CR><CR>------------------------------------------------------------------------------------<Esc>2kA
-ab #c //-----------------------------------------------------------------------------------<CR><CR><CR><CR>-----------------------------------------------------------------------------------<Esc>2kA
-ab #j <Esc>mzi/**<CR>*<CR>*<CR>*<CR>*/<Esc>=`z`z2jA
-ab #i #include
-ab @b /// \brief
-ab @v ///<
-ab @p /// @param
-ab @r /// @return
 
 if !exists('g:loaded_matchit')
   runtime macros/matchit.vim
@@ -56,7 +45,5 @@ nnoremap ,<Up> :m-2<CR>==
 nnoremap ,<Down> :m+<CR>==
 vnoremap ,<Up> :m '<-2<CR>gv=gv
 vnoremap ,<Down> :m '>+1<CR>gv=gv
-
-inoremap <C-X>d * <C-R>=strftime("%a %b %d %Y")<CR> - wdu.gpw<CR>- Wersja 
 
 runtime! ftplugin/man.vim
