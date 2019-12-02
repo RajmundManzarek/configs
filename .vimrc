@@ -20,18 +20,18 @@ endif
 
 nnoremap <F2> :w \| :bp<CR>
 inoremap <F2> <Esc>:w \| :bp<CR>i
-nnoremap <F3> :buffers<CR>
-inoremap <F3> <Esc>:buffers<CR>
-nnoremap <F4> <C-W><C-W>
-inoremap <F4> <Esc><C-W><C-W>i
+"nnoremap <F3> :buffers<CR>
+"inoremap <F3> <Esc>:buffers<CR>
+"nnoremap <F4> <C-W><C-W>
+"inoremap <F4> <Esc><C-W><C-W>i
 nnoremap <F5> :nohlsearch<CR>
 inoremap <F5> <Esc>:nohlsearch<CR>
-nnoremap <F6> :wall \| make build<CR>
-inoremap <F6> <Esc>:wall \| make build<CR>
+"nnoremap <F6> :wall \| make build<CR>
+"inoremap <F6> <Esc>:wall \| make build<CR>
 nnoremap <F7> ^i//<Esc>
 inoremap <F7> <Esc>^i//
-nnoremap <F8> <C-Y>
-inoremap <F8> <Esc><C-Y>
+"nnoremap <F8> <C-Y>
+"inoremap <F8> <Esc><C-Y>
 nnoremap <F9> :wall \| cn<CR>
 inoremap <F9> <Esc>:wall \| cn<CR>
 nnoremap <F10> :wqall<CR>
@@ -40,6 +40,9 @@ nnoremap <F11> :wall \| make test<CR>
 inoremap <F11> <Esc>:wall! \| make test<CR>
 nnoremap <F12> :wall \| make<CR>
 inoremap <F12> <Esc>:wall \| make<CR>
+
+autocmd FileType rust nnoremap <F12> :wall \| make build<CR>
+autocmd FileType rust inoremap <F12> <Esc>:wall \| make build<CR>
 
 nnoremap ,<Up> :m-2<CR>==
 nnoremap ,<Down> :m+<CR>==
