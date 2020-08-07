@@ -1,18 +1,21 @@
 syntax on
 set nonu
-colorscheme molokai
-highlight Visual ctermbg=Blue ctermfg=Yellow
+"colorscheme molokai
+colorscheme distinguished
+"highlight Visual ctermbg=Blue ctermfg=Yellow
 set filetype=on
 autocmd FileType c,cpp :set cindent
 autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
 autocmd FileType html :set si
 autocmd FileType javascript :set efm=%f:\ line\ %l\\,\ col\ %c\\,\ %m
 autocmd FileType rust :set shiftwidth=2
+autocmd FileType typescript :set shiftwidth=2
+autocmd FileType yaml :set shiftwidth=2
 filetype plugin indent on
 set shiftround
 set cinkeys=0{,0},0),!^F,o,O,e
 set cino=i-s
-set path=.,../include,/home/wdu/sources/include
+set path=.,../include,/usr/local/include
 
 if !exists('g:loaded_matchit')
   runtime macros/matchit.vim
@@ -20,7 +23,7 @@ endif
 
 nnoremap <F2> :w \| :bp<CR>
 inoremap <F2> <Esc>:w \| :bp<CR>i
-"nnoremap <F3> :buffers<CR>
+nnoremap <F3> :<C-F>
 "inoremap <F3> <Esc>:buffers<CR>
 "nnoremap <F4> <C-W><C-W>
 "inoremap <F4> <Esc><C-W><C-W>i
@@ -41,12 +44,20 @@ inoremap <F11> <Esc>:wall! \| make test<CR>
 nnoremap <F12> :wall \| make<CR>
 inoremap <F12> <Esc>:wall \| make<CR>
 
+autocmd FileType rust nnoremap <F3> :RustFmt<CR>
+autocmd FileType rust inoremap <F3> <Esc>:RustFmt<CR>
+autocmd FileType rust nnoremap <F8> :wall \| make build --release<CR>
+autocmd FileType rust inoremap <F8> <Esc>:wall \| make build --release<CR>
 autocmd FileType rust nnoremap <F12> :wall \| make build<CR>
 autocmd FileType rust inoremap <F12> <Esc>:wall \| make build<CR>
+autocmd FileType typescript nnoremap <F12> :wall \| ! npm run build<CR>
+autocmd FileType typescript inoremap <F12> <Esc>:wall \| ! npm run build<CR>
 
 nnoremap ,<Up> :m-2<CR>==
 nnoremap ,<Down> :m+<CR>==
 vnoremap ,<Up> :m '<-2<CR>gv=gv
 vnoremap ,<Down> :m '>+1<CR>gv=gv
+
+inoremap <C-X>d * <C-R>=strftime("%a %b %d %Y")<CR> - wdu<CR>- V
 
 runtime! ftplugin/man.vim
