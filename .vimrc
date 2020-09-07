@@ -21,16 +21,16 @@ if !exists('g:loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-nnoremap <F2> :w \| :bp<CR>
-inoremap <F2> <Esc>:w \| :bp<CR>i
+nnoremap <F2> :bp!<CR>
+inoremap <F2> <Esc>:bp!<CR>i
 nnoremap <F3> :<C-F>
-"inoremap <F3> <Esc>:buffers<CR>
-"nnoremap <F4> <C-W><C-W>
-"inoremap <F4> <Esc><C-W><C-W>i
+inoremap <F3> <Esc>:<C-F>
+nnoremap <F4> :E<CR>
+inoremap <F4> <Esc>:E<CR>
 nnoremap <F5> :nohlsearch<CR>
 inoremap <F5> <Esc>:nohlsearch<CR>
-"nnoremap <F6> :wall \| make build<CR>
-"inoremap <F6> <Esc>:wall \| make build<CR>
+nnoremap <F6> :bde<CR>
+inoremap <F6> <Esc>:bde<CR>
 nnoremap <F7> ^i//<Esc>
 inoremap <F7> <Esc>^i//
 "nnoremap <F8> <C-Y>
@@ -59,5 +59,7 @@ vnoremap ,<Up> :m '<-2<CR>gv=gv
 vnoremap ,<Down> :m '>+1<CR>gv=gv
 
 inoremap <C-X>d * <C-R>=strftime("%a %b %d %Y")<CR> - wdu<CR>- V
+inoremap <C-X>o <Esc>o
+inoremap <C-X>O <Esc>O
 
 runtime! ftplugin/man.vim
