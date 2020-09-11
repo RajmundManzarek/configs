@@ -33,8 +33,8 @@ nnoremap <F6> :bde<CR>
 inoremap <F6> <Esc>:bde<CR>
 nnoremap <F7> ^i//<Esc>
 inoremap <F7> <Esc>^i//
-"nnoremap <F8> <C-Y>
-"inoremap <F8> <Esc><C-Y>
+nnoremap <F8> :wall \| only<CR>
+inoremap <F8> <Esc>:wall \| only<CR>
 nnoremap <F9> :wall \| cn<CR>
 inoremap <F9> <Esc>:wall \| cn<CR>
 nnoremap <F10> :wqall<CR>
@@ -58,8 +58,17 @@ nnoremap ,<Down> :m+<CR>==
 vnoremap ,<Up> :m '<-2<CR>gv=gv
 vnoremap ,<Down> :m '>+1<CR>gv=gv
 
+inoremap <C-X>c <Esc>:copen<CR>
+nnoremap <C-X>c :copen<CR>
 inoremap <C-X>d * <C-R>=strftime("%a %b %d %Y")<CR> - wdu<CR>- V
+inoremap <C-X>D <Esc>ddi
 inoremap <C-X>o <Esc>o
 inoremap <C-X>O <Esc>O
+inoremap <C-X>t <Esc>:vimgrep TODO src/**/*<CR>
+nnoremap <C-X>t :vimgrep TODO src/**/*<CR>
+
+let mapleader = ","
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 runtime! ftplugin/man.vim
