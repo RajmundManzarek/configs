@@ -3,7 +3,6 @@
 	email = wojciech.dudczak@gpw.pl
 [core]
 	editor = vim
-	excludesfile = /home/wdu/.git_exclude
 [merge]
 	tool = vimdiff
 [alias]
@@ -28,10 +27,11 @@
     bra = branch -ra
     #list commands
     le = log --oneline --decorate
-    ll = log --pretty=format:"%C(bold)%C(yellow)%h%C(red)%d\\ %Creset%s%C(bold)%C(cyan)\\ [%cn]" --decorate --numstat
+    #ll = log --pretty=format:"%C(bold)%C(yellow)%h%C(red)%d\\ %Creset%s%C(bold)%C(cyan)\\ [%cn]" --decorate --numstat
     ls1 = log --pretty=format:"%C(bold)%C(yellow)%h%C(red)%d\\ %Creset%s%C(bold)%C(cyan)\\ [%cn]" --decorate
     lds = log --pretty=format:"%C(bold)%C(yellow)%h\\ %C(green)%ad%C(red)%d\\ %Creset%s%C(bold)%C(cyan)\\ [%cn]" --decorate --date=short --graph
     ls = log --pretty=format:"%C(bold)%C(green)%h\\ %C(yellow)[%ad]%C(red)%d\\ %Creset%s%C(bold)%C(cyan)\\ [%cn]" --decorate --date=short --graph
+    ll = log --pretty=format:"%C(bold)%C(green)%H\\ %C(yellow)[%ad]%C(red)%d\\ %Creset%s%C(bold)%C(cyan)\\ [%cn]" --decorate --date=short --graph
     lc  = "!f() { git ll "$1"^.."$1"; }; f"
     lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
     #list all aliases
@@ -88,6 +88,8 @@
 
     lasttag = describe --tags --abbrev=0
     lt = describe --tags --abbrev=0
+
+    ltg = tag -ln1
 
     #merges
     ours = "!f() { git co --ours $@ && git add $@; }; f"
