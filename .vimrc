@@ -1,8 +1,6 @@
 syntax on
 set nonu
-"colorscheme molokai
 colorscheme distinguished
-"highlight Visual ctermbg=Blue ctermfg=Yellow
 set filetype=on
 autocmd FileType c,cpp :set cindent
 autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
@@ -21,6 +19,8 @@ if !exists('g:loaded_matchit')
   runtime macros/matchit.vim
 endif
 
+runtime! ftplugin/man.vim
+
 nnoremap <F2> :bp!<CR>
 inoremap <F2> <Esc>:bp!<CR>i
 nnoremap <F3> :<C-F>
@@ -31,8 +31,8 @@ nnoremap <F5> :nohlsearch<CR>
 inoremap <F5> <Esc>:nohlsearch<CR>
 nnoremap <F6> :bde<CR>
 inoremap <F6> <Esc>:bde<CR>
-nnoremap <F7> ^i//<Esc>
-inoremap <F7> <Esc>^i//
+nnoremap <F7> I//<Esc>
+inoremap <F7> <Esc>I//
 nnoremap <F8> :wall \| only<CR>
 inoremap <F8> <Esc>:wall \| only<CR>
 nnoremap <F9> :wall \| cn<CR>
@@ -58,17 +58,34 @@ nnoremap ,<Down> :m+<CR>==
 vnoremap ,<Up> :m '<-2<CR>gv=gv
 vnoremap ,<Down> :m '>+1<CR>gv=gv
 
+inoremap <C-D>b <Esc>Gi
+inoremap <C-D>t <Esc>ggi
+
+inoremap <C-X>a <Esc>mai
+inoremap <C-X>A <Esc>`ai
+inoremap <C-X>b <Esc>mbi
+inoremap <C-X>B <Esc>`bi
 inoremap <C-X>c <Esc>:copen<CR>
 nnoremap <C-X>c :copen<CR>
-inoremap <C-X>d * <C-R>=strftime("%a %b %d %Y")<CR> - wdu<CR>- V
-inoremap <C-X>D <Esc>ddi
+inoremap <C-X>C {<CR>public:<CR>private:<CR>};<Esc>h%=Gjo
+inoremap <C-X>d <Esc>ddi
+inoremap <C-X>D * <C-R>=strftime("%a %b %d %Y")<CR> - wdu<CR>- V
+inoremap <C-X>l <Esc>yypi
 inoremap <C-X>o <Esc>o
 inoremap <C-X>O <Esc>O
 inoremap <C-X>t <Esc>:vimgrep TODO src/**/*<CR>
 nnoremap <C-X>t :vimgrep TODO src/**/*<CR>
+inoremap <C-X>w <Esc>:wall<CR>i
+nnoremap <C-X>w :wall<CR>
+inoremap <C-X>= <Esc>=Gi
+nnoremap <C-X>= =G
 
 let mapleader = ","
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-runtime! ftplugin/man.vim
+abbreviate @t //TODO
+abbreviate @b /// \brief
+abbreviate @v ///<
+abbreviate @p /// @param
+abbreviate @r /// @return
