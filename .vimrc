@@ -53,13 +53,9 @@ autocmd FileType rust inoremap <F12> <Esc>:wall \| make build<CR>
 autocmd FileType typescript nnoremap <F12> :wall \| ! npm run build<CR>
 autocmd FileType typescript inoremap <F12> <Esc>:wall \| ! npm run build<CR>
 
-nnoremap ,<Up> :m-2<CR>==
-nnoremap ,<Down> :m+<CR>==
-vnoremap ,<Up> :m '<-2<CR>gv=gv
-vnoremap ,<Down> :m '>+1<CR>gv=gv
 
-inoremap <C-D>b <Esc>Gi
-inoremap <C-D>t <Esc>ggi
+inoremap <C-D>b <Esc>ggi
+inoremap <C-D>e <Esc>Gi
 
 inoremap <C-X>a <Esc>mai
 inoremap <C-X>A <Esc>`ai
@@ -67,7 +63,7 @@ inoremap <C-X>b <Esc>mbi
 inoremap <C-X>B <Esc>`bi
 inoremap <C-X>c <Esc>:copen<CR>
 nnoremap <C-X>c :copen<CR>
-inoremap <C-X>C {<CR>public:<CR>private:<CR>};<Esc>h%=Gjo
+inoremap <C-X>C {<CR>public:<CR>private:<CR>};<Esc>h%=Gjo<CR>
 inoremap <C-X>d <Esc>ddi
 inoremap <C-X>D * <C-R>=strftime("%a %b %d %Y")<CR> - wdu<CR>- V
 inoremap <C-X>l <Esc>yypi
@@ -79,10 +75,16 @@ inoremap <C-X>w <Esc>:wall<CR>i
 nnoremap <C-X>w :wall<CR>
 inoremap <C-X>= <Esc>=Gi
 nnoremap <C-X>= =G
+inoremap <C-X>{ {<CR>}<Esc>ko
 
 let mapleader = ","
+nnoremap <leader><Up> :m-2<CR>==
+nnoremap <leader><Down> :m+<CR>==
+vnoremap <leader><Up> :m '<-2<CR>gv=gv
+vnoremap <leader><Down> :m '>+1<CR>gv=gv
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+vnoremap <leader>cb I//<Esc>
 
 abbreviate @t //TODO
 abbreviate @b /// \brief
