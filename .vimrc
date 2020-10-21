@@ -9,6 +9,8 @@ autocmd FileType javascript :set efm=%f:\ line\ %l\\,\ col\ %c\\,\ %m
 autocmd FileType rust :set shiftwidth=2
 autocmd FileType typescript :set shiftwidth=2
 autocmd FileType yaml :set shiftwidth=2
+autocmd FileType Jenkinsfile :set shiftwidth=2
+autocmd FileType Jenkinsfile :set si
 filetype plugin indent on
 set shiftround
 set cinkeys=0{,0},0),!^F,o,O,e
