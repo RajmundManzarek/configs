@@ -1,0 +1,25 @@
+git remote prune origin
+
+git checkout -b branch origin/branch
+lub:
+git checkout -t origin/branch
+
+Jak trzeba zrobić rebase lokalnie, to merge mastera do swojej gałęzi:
+[wdu@mojo n8-core]$ git br
+* N8DEV-3145_tp_latencies_tweaks
+  release/v0.21.0
+  release/v0.22.0
+[wdu@mojo n8-core]$ git merge release/v0.22.0
+
+
+git merge release/sprint18
+
+git fetch
+git merge origin/<branch>
+
+[wdu@mojo n8-core]$ git br
+* N8DEV-3724-latency_tool
+  release/v0.22.0
+  release/v0.23.0
+[wdu@mojo n8-core]$ git rebase --onto release/v0.23.0 release/v0.22.0 N8DEV-3724-latency_tool
+
